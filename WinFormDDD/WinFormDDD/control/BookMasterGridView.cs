@@ -73,6 +73,12 @@ namespace WinFormDDD.control
             return indexSource.Any(x => x.data.IsBOOK_NAMENull() || string.IsNullOrEmpty(x.data.BOOK_NAME));
         }
 
+        // スプレッドシートもラップするなら、これをpublicでやる必要はなくて、
+        // 最終的にフォーカス合わせた後に、結果メッセージだけ返してあげれば良い気がする。
+        // Messageがnullであれば、何も表示しなくてOKということで。
+        // ただ、Messageの取得方法については、BaseFormで用意されているメッセージ取得メソッドを
+        // 使わなければならないようだから、true,falseで返すのが手っ取り早い気がしている。
+
         public int RowIndexBookNameBlank()
         {
             var indexSource = dataSource.Select((data, index) => new { data, index });
