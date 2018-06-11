@@ -78,7 +78,6 @@ namespace WinFormDDD.control
         // Messageがnullであれば、何も表示しなくてOKということで。
         // ただ、Messageの取得方法については、BaseFormで用意されているメッセージ取得メソッドを
         // 使わなければならないようだから、true,falseで返すのが手っ取り早い気がしている。
-
         public int RowIndexBookNameBlank()
         {
             var indexSource = dataSource.Select((data, index) => new { data, index });

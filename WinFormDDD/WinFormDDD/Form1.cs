@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SQLite;
-using WinFormDDD.dataset;
+using System.Windows.Forms;
 using WinFormDDD.control;
+using WinFormDDD.dataset;
 
 namespace WinFormDDD
 {
@@ -20,13 +14,15 @@ namespace WinFormDDD
             InitializeComponent();
         }
 
+        #region イベント
+
         private void BtnSearch_Click(object sender, EventArgs e)
         {
             var datatable = SelectBookMaster();
-
             dataGridView.SetDataSource(datatable);
             dataGridView.EnableColumnVisible(BookMasterGridView.Column.MODIFY_FLAG, false);
         }
+
         private void BtnRequired_Click(object sender, EventArgs e)
         {
             bool isBlank = dataGridView.IsBookNameBlank();
@@ -40,14 +36,12 @@ namespace WinFormDDD
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-        }
-
         private void BtnClear_Click(object sender, EventArgs e)
         {
             dataGridView.Clear();
         }
+        #endregion
+
 
         private DbDataSet.BOOK_MASTERDataTable SelectBookMaster()
         {
